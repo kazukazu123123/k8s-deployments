@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":disableRateLimiting",
+    ":disablePrControls",
+    "helpers:pinGitHubActionDigests",
+    "security:openssf-scorecard"
+  ],
+  "commitBodyTable": true,
+  "kubernetes": {
+    "managerFilePatterns": ["/\\.yaml$/"]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["kubernetes"],
+      "semanticCommitType": "manifest",
+      "semanticCommitScope": null
+    }
+  ]
+}
